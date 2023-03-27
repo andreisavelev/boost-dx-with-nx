@@ -2,3 +2,5 @@ node_modules
 bundled
 presentation.zip
 index.pdf
+.idea/
+/.idea/vcs.xml
