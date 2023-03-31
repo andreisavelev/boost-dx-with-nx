@@ -4,10 +4,14 @@
     <title>Boost your DX with NX</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css">
     <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/styles.css">
     <style>
         .shower {
             --slide-ratio: calc(16 / 9);
+        }
+        div.code {
+            white-space: pre;
         }
     </style>
 </head>
@@ -40,6 +44,12 @@
         </ol>
     </section>
 
+    <section class="slide">
+        <figure>
+            <img src="pictures/herewego.gif" alt="Here we go" class="cover">
+        </figure>
+    </section>
+
     <section class="slide" id="cover">
         <h2 style="text-align: center">NX.js</h2>
 
@@ -55,24 +65,28 @@
         <h2>A brief overview of NX.js</h2>
         <p>NX.js is a powerful tool that provides a flexible and scalable approach to managing monorepo architecture.</p>
         <div class="columns two">
-            <ul>
-                <li>React</li>
-                <li>Angular</li>
-                <li>Vue</li>
-                <li>Express/Nest/Fastify</li>
-                <li>Module Federation</li>
-            </ul>
-
-            <ul>
-                <li>Non-js, like Rust, Go, etc...</li>
-            </ul>
+            <img src="pictures/react-logo.png" alt="React" width="50" height="50">
+            <img src="pictures/angular-logo.png" alt="Angular" width="50" height="50">
+            <img src="pictures/NestJS.svg.png" alt="Nest" width="50" height="50">
+            <img src="pictures/Nextjs-logo.png" alt="Next" width="50" height="50">
+            <img src="pictures/Python-logo-notext.svg.png" alt="Python" width="50" height="50">
+            <img src="pictures/fastify-logo-menu.d13f8da7a965c800.png" alt="Fastify" width="100" height="50">
+            <img src="pictures/1280px-Go_Logo_Blue.svg.png" alt="Go" width="60" height="50">
+            <img src="pictures/Vue.js_Logo_2.svg.png" alt="Vue" width="60" height="50">
         </div>
 
     </section>
 
     <section class="slide">
-        <h2>Challenges of managing complex monorepos</h2>
+        <h2>Challenges of managing complex <br /> monorepos</h2>
+        <figure class="">
+            <img src="pictures/challenge_mem.gif" alt="Monorepo">
+        </figure>
+    </section>
 
+    <section class="slide">
+        <h2>Challenges of managing complex <br /> monorepos</h2>
+        
         <div class="columns two">
             <ul>
                 <li>Code organization</li>
@@ -92,15 +106,23 @@
     </section>
 
     <section class="slide">
-        <h2>The benefits of a monorepo architecture</h2>
+        <h2>The benefits of a monorepo <br /> architecture</h2>
+
+        <figure class="">
+            <img src="pictures/monorepo_mem_spach.gif" width="450" height="300" alt="Monorepo">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>The benefits of a monorepo <br /> architecture</h2>
 
         <ol>
             <li>Code sharing</li>
-            <li>Centralized management</li>
-            <li>Improved collaboration</li>
-            <li>Simplified tooling</li>
-            <li>Simplified tooling</li>
-            <li>Better version control</li>
+            <li class="next">Centralized management</li>
+            <li class="next">Improved collaboration</li>
+            <li class="next">Simplified tooling</li>
+            <li class="next">Simplified tooling</li>
+            <li class="next">Better version control</li>
         </ol>
     </section>
 
@@ -109,55 +131,78 @@
 
         <div class="columns two">
             <ul>
+                <li>Code Generation and Scaffolding</li>
                 <li>Run Tasks</li>
                 <li>Cache Task Results</li>
                 <li>Explore the Graph</li>
                 <li>Distribute Task Execution (DTE)</li>
-                <li>Automate Updating Dependencies</li>
-                <li>Enforce Project Boundaries</li>
             </ul>
 
             <ul>
                 <li>Customizable Builders and Executors</li>
-                <li>Code Generation and Scaffolding</li>
-                <li>A lot of plugins</li>
+                <li>Automate Updating Dependencies</li>
+                <li>Enforce Project Boundaries</li>
+                <li>A lot of plugins...</li>
             </ul>
         </div>
     </section>
 
     <section class="slide">
+        <h2>Easy to use</h2>
+        <ul>
+            <li>CLI</li>
+            <li>VSCode extension/Web Storm plugin</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Code Generation and Scaffolding</h2>
+        <div class="code">
+        $ npx create-nx-workspace@latest awesome-workspace
+        $ nx g @nrwl/next:app site --directory=apps
+        $ nx g @nrwl/react:component my-component --project=site
+        $ nx g @nrwl/nest:app api --frontendProject=site
+        $ nx g @nrwl/js:lib shared --importPath=@awesome-lib/shared
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shrink">
+            Demo
+        </h2>
+    </section>
+    
+    <section class="slide">
         <h2>Run Tasks</h2>
-        <p>To build, test, lint, and format your code.</p>
 
-        <pre>
-            <code>nx run --target=build --projects=api</code>
-        </pre>
-
-        <pre>
-            <code>nx affected --target=test</code>
-        </pre>
-
-        <pre>
-            <code>nx affected --target=lint --base=master</code>
-        </pre>
+        <div class="code">
+        $ nx run --target=build --projects=api
+        $ nx affected --target=test
+        $ nx affected --target=lint --base=master
+        $ nx format:check
+        $ nx format:write
+        </div>
     </section>
 
     <section class="slide">
         <h2>Cache Task Result</h2>
-        <pre>
-            <code>"cacheableOperations": ["build", "test"]</code>
-        </pre>
+        <div class="code">
+        {
+            "cacheableOperations": ["build", "test"]
+        }
+        </div>
     </section>
 
     <section class="slide">
         <h2>Explore the Graph</h2>
+        <p>Visualize your workspace and its dependencies.</p>
         <div class="columns two">
             <pre>
                 <code>$ nx dep-graph</code>
             </pre>
 
             <figure>
-                <img src="pictures/dep_graph.png" alt="Dep graph" wdith="350" height="350">
+                <img src="pictures/dep_graph.png" alt="Dep graph" wdith="300" height="300">
             </figure>
         </div>
     </section>
@@ -165,81 +210,45 @@
     <section class="slide">
         <h2>Distribute Task Execution (DTE)</h2>
         <p>Run tasks in parallel across multiple machines.</p>
-        <pre>
-            <code>$ nx run-many --target=build --projects=api --maxParallel=3</code>
-        </pre>
+        <div class="code">
+        $ nx run-many --target=build --projects=api,app,som-lib --parallel=3
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shrink">
+            Demo
+        </h2>
     </section>
 
     <section class="slide">
         <h2>Automate Updating Dependencies</h2>
         <p>Automatically update dependencies across your workspace.</p>
-        <pre>
-            <code>$ nx migrate --run-migrations=migrations.json</code>
-        </pre>
+        <div class="code">
+        $ nx migrate --run-migrations=migrations.json
+        </div>
     </section>
 
     <section class="slide">
         <h2>Enforce Project Boundaries</h2>
-        <p>Enforce project boundaries by defining which projects can import from which other projects.</p>
-        <pre>
-            <code>implicitDependencies": {
+        <div class="code">
+        implicitDependencies": {
             "api": {
                 "tags": ["your-tag", "your-other-tag"]
             }
-        }</code>
-        </pre>
-
-        <p>Tags are used to define groups of projects that can import from each other.</p>
+        }
+        </div>
     </section>
 
     <section class="slide">
         <h2>Customizable Builders and Executors</h2>
-        <p>Customize the way your code is built, tested, and linted.</p>
-        <pre>
-            <code>"builders": {
+        <div class="code">
+        "builders": {
             "build": {
                 "builder": "@nrwl/node:build",
             }
-        }</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <pre>
-            <code>"options": {
-                "outputPath": "dist/apps/api",
-                "main": "apps/api/src/main.ts",
-                "tsConfig": "apps/api/tsconfig.app.json",
-                "assets": [
-                    "apps/api/src/assets"
-                ]
-            }</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <pre>
-            <code>"configurations": {
-    "production": {
-        "optimization": true,
-        ...
-        "fileReplacements": [
-            {
-                "replace": "environment.ts",
-                "with": "environment.prod.ts"
-            }
-        ]
-    }
-            }</code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>Code Generation and Scaffolding</h2>
-        <p>Generate code and files for your projects.</p>
-        <pre>
-            <code>$ nx g @nrwl/node:app api</code>
-        </pre>
+        }
+        </div>
     </section>
 
     <section class="slide">
@@ -247,22 +256,16 @@
 
         <div class="columns two">
             <ul>
-                <li>Angular</li>
-                <li>React</li>
-                <li>React Native</li>
-                <li>Vue</li>
-                <li>Web Components</li>
-                <li>Node</li>
-                <li>Express</li>
+                <li>Storybook</li>
+                <li>Docker</li>
+                <li>Deploy</li>
+                <li>Publish to a registry</li>
             </ul>
 
             <ul>
-                <li>Nest.js</li>
-                <li>Fastify</li>
-                <li>Next.js</li>
-                <li>Storybook</li>
-                <li>docerizing</li>
-                <li>deploying</li>
+                <li>Cypress</li>
+                <li>Cucumber</li>
+                <li>Doc generation</li>
                 <li>and more...</li>
             </ul>
         </div>
@@ -277,8 +280,15 @@
             <li class="next">shared libraries</li>
             <li class="next">domain libraries</li>
             <li class="next">feature libraries</li>
-            <li class="next">from scratch to production for ~6 month</li>
-            <li class="next">5 bugs in Rally for all time</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Case-study</h2>
+
+        <ul>
+            <li>from scratch to production for ~6 month</li>
+            <li>5 bugs in the Rally for all time</li>
         </ul>
     </section>
 
@@ -302,5 +312,16 @@
     <div class="progress"></div>
 
     <script src="node_modules/@shower/core/dist/shower.js"></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/languages/bash.min.js"></script>
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/languages/json.min.js"></script>
+    <script>
+        document
+            .querySelectorAll('div.code')
+            .forEach(el => {
+                // then highlight each
+                hljs.highlightElement(el);
+            });
+    </script>
 </body>
 </html>
